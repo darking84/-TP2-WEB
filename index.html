@@ -6,10 +6,35 @@
     <title>Document</title>
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
         h1 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-top: 40px;
+        }
+
+        .sommaire {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .sommaire a {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            background: #f0f0f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .sommaire a:hover {
+            background: #0077cc;
+            color: white;
         }
     </style>
 </head>
@@ -17,6 +42,12 @@
 <body>
 
     <h1>Sommaire</h1>
+
+    <div class="sommaire">
+        <a href="https://example.com" target="_blank">TP1</a>
+        <a href="https://darking84.github.io/-TP2-WEB/" target="_blank">TP2</a>
+        <a href="https://github.com" target="_blank">TP3</a>
+    </div>
 
 </body>
 </html>
