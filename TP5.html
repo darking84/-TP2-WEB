@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP5 - Les Tableaux HTML</title>
+    <style>
+        /* Style Global */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container { max-width: 1100px; margin: auto; }
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 { text-align: center; color: #1a365d; }
+        h2 { color: #2c5282; border-left: 5px solid #3182ce; padding-left: 15px; margin-bottom: 20px; }
+
+        /* Styles Tableaux */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; vertical-align: middle; }
+        
+        /* Exercice 1 : Couleurs Spécifiques */
+        .head-ex1 { background: #595959; color: white; }
+        .za { background: #bdd7ee; font-size: 0.9em; }
+        .zb { background: #f8cbad; font-size: 0.9em; }
+        .zc { background: #c6efce; font-size: 0.9em; }
+        .label { background: #dce6f1; font-weight: bold; text-align: left; }
+        .commun { background: #f9f9f9; font-style: italic; color: #555; }
+
+        /* Exercice 2 : Langages */
+        .head-ex2 { background: #4b79a1; color: white; }
+        .logo { width: 55px; height: auto; transition: transform 0.2s; }
+        .logo:hover { transform: scale(1.1); }
+        code { background: #2d3748; color: #fbd38d; padding: 3px 6px; border-radius: 4px; font-family: monospace; }
+        
+        /* Exercice 3 : Calendrier */
+        .calendar { width: auto; margin: auto; min-width: 350px; }
+        .calendar th { background: #2c3e50; color: white; }
+        .calendar td:hover { background: #3182ce; color: white; cursor: pointer; }
+        caption { font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>TP6 : Utilisation des balises Tableau, Image et Lien</h1>
+
+    <section>
+        <h2>Exercice 1  Calendrier scolaire 2017-2018</h2>
+        <table>
+            <thead>
+                <tr class="head-ex1">
+                    <th>Vacances</th>
+                    <th>Zone A</th>
+                    <th>Zone B</th>
+                    <th>Zone C</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="za">Besançon, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Poitiers </td>
+                    <td class="zb">Aix-Marseille, Amiens, Caen, Lille, Nancy-Metz, Nantes, Nice, Orléans-Tours, Reims, Rennes, Rouen, Strasbourg </td>
+                    <td class="zc">Créteil, Montpellier, Paris, Toulouse, Versailles </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="label">Prérentrée des enseignants</td>
+                    <td class="commun" colspan="3">Vendredi 1er septembre 2017 </td>
+                </tr>
+                <tr>
+                    <td class="label">Rentrée des élèves</td>
+                    <td class="commun" colspan="3">Lundi 4 septembre 2017 </td>
+                </tr>
+                <tr>
+                    <td class="label">Toussaint</td>
+                    <td class="commun" colspan="3">Du samedi 21 octobre au lundi 6 novembre 2017 </td>
+                </tr>
+                <tr>
+                    <td class="label">Noël</td>
+                    <td class="commun" colspan="3">Du samedi 23 décembre 2017 au lundi 8 janvier 2018 </td>
+                </tr>
+                <tr>
+                    <td class="label">Hiver</td>
+                    <td class="za">Du 10 fév. au 26 fév. </td>
+                    <td class="zb">Du 24 fév. au 12 mars </td>
+                    <td class="zc">Du 17 fév. au 5 mars </td>
+                </tr>
+                <tr>
+                    <td class="label">Printemps</td>
+                    <td class="za">Du 7 avril au 23 avril </td>
+                    <td class="zb">Du 21 avril au 7 mai </td>
+                    <td class="zc">Du 14 avril au 30 avril </td>
+                </tr>
+                <tr>
+                    <td class="label">Été</td>
+                    <td class="commun" colspan="3">Samedi 7 juillet 2018 </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Exercice 2 Langages de script côté serveur</h2>
+        <table>
+            <caption>Comparatif des langages </caption>
+            <thead>
+                <tr class="head-ex2">
+                    <th>Logo</th>
+                    <th>Nom abrégé</th>
+                    <th>Nom complet</th>
+                    <th>Année</th>
+                    <th>Site officiel</th>
+                    <th>Exemple de code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="phplogo.png" target="_blank"><img class="logo" src="TP5\phplogo.png" alt="PHP" title="Logo PHP"></a></td>
+                    <td>PHP</td>
+                    <td>Hypertext Preprocessor</td>
+                    <td>1994</td>
+                    <td><a href="https://www.php.net" target="_blank" title="Site officiel PHP">www.php.net</a></td>
+                    <td><code>&lt;?php echo "Bonjour"; ?&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><a href="TP5\jsplogo.png" target="_blank"><img class="logo" src="TP5\jsplogo.png" alt="JSP" title="Logo JSP"></a></td>
+                    <td>JSP</td>
+                    <td>Java Server Pages</td>
+                    <td>1999</td>
+                    <td><a href="https://www.oracle.com/java/" target="_blank" title="Site officiel Java">oracle.com/java</a></td>
+                    <td><code>&lt;% out.println("Bonjour"); %&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><a href="pythonlogo.jpg" target="_blank"><img class="logo" src="TP5\pythonlogo.jpg" alt="Python" title="Logo Python"></a></td>
+                    <td>Python</td>
+                    <td>Python</td>
+                    <td>1991</td>
+                    <td><a href="https://www.python.org" target="_blank" title="Site officiel Python">www.python.org</a></td>
+                    <td><code>print("Bonjour")</code> </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Exercice 3 Calendrier mensuel</h2>
+        <table class="calendar">
+            <caption>Avril 2024</caption>
+            <thead>
+                <tr>
+                    <th>Lu</th><th>Ma</th><th>Me</th><th>Je</th><th>Ve</th><th>Sa</th><th>Di</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+                </tr>
+                <tr>
+                    <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
+                </tr>
+                <tr>
+                    <td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+                </tr>
+                <tr>
+                    <td>29</td><td>30</td><td colspan="5" style="background: #eee;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+</body>
+</html>
