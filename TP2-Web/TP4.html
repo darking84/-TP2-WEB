@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloc 1 - Programmation Web</title>
+
+<style>
+
+:root{
+    --violet:#6a0dad;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+    text-align:center;
+}
+
+/* HEADER */
+header{
+    background:var(--violet);
+    color:white;
+    padding:40px 20px;
+}
+
+/* CARTES ACCUEIL */
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin:60px 0;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    width:220px;
+    border-radius:15px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:80px;
+}
+
+/* SECTIONS */
+.section{
+    display:none;
+    padding:40px 20px;
+}
+
+.active{
+    display:block;
+}
+
+/* BOUTONS SOMMAIRE */
+.btn{
+    display:block;
+    background:#e0e0e0;
+    color:var(--violet);
+    text-decoration:none;
+    padding:18px;
+    margin:20px auto;
+    width:60%;
+    max-width:600px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:white;
+    transform:scale(1.03);
+}
+
+.back{
+    margin-top:30px;
+    display:inline-block;
+    color:var(--violet);
+    cursor:pointer;
+    font-weight:bold;
+}
+
+</style>
+
+<script>
+function showSection(id){
+    document.querySelectorAll(".section").forEach(sec=>{
+        sec.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</head>
+<body>
+
+<!-- ACCUEIL -->
+<div id="home" class="section active">
+
+<header>
+    <h1>Bloc 1 - Programmation Web</h1>
+    <p>Bienvenue sur le site des cours HTML, CSS et JavaScript.</p>
+</header>
+
+<section class="cards">
+    <div class="card" onclick="showSection('html')">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+        <h2>HTML</h2>
+    </div>
+
+    <div class="card" onclick="showSection('css')">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
+        <h2>CSS</h2>
+    </div>
+
+    <div class="card" onclick="showSection('js')">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+        <h2>JavaScript</h2>
+    </div>
+</section>
+<section class="description">
+    <h2>Description du cours</h2>
+    <p>
+        Ce site regroupe les différents cours et travaux pratiques du module de Programmation Web.
+        Chaque section contient les supports de cours, les exercices et les travaux pratiques associés.
+    </p>
+</section>
+
+<section class="sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+        <li><a href="#">Cours et TP HTML</a></li>
+        <li><a href="#">Cours et TP CSS</a></li>
+        <li><a href="#">Cours et TP JavaScript</a></li>
+    </ol>
+</section>
+</div>
+
+
+<!-- SOMMAIRE HTML -->
+<div id="html" class="section">
+<header>
+    <h1> Sommaire HTML</h1>
+</header>
+
+<a href="TP4\DOC\HTML\cours1.html" target="_blank" class="btn">Cours 1</a>
+<a href="TP4\DOC\HTML\cours2.html" target="_blank" class="btn">Cours 2 </a>
+<a href="https://htmlreference.io/" target="_blank" class="btn">Cours 3 </a>
+<a href="https://htmlreference.io/" target="_blank" class="btn">Cours 4 </a>
+<a href="https://htmlreference.io/" target="_blank" class="btn">Cours 5 </a>
+
+<div class="back" onclick="showSection('home')">⬅ Retour</div>
+</div>
+
+
+<!-- SOMMAIRE CSS -->
+<div id="css" class="section">
+<header>
+    <h1> Sommaire CSS</h1>
+</header>
+
+<a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank" class="btn">Cours 1 </a>
+<a href="https://www.w3schools.com/css/" target="_blank" class="btn">Cours 2 </a>
+
+
+<div class="back" onclick="showSection('home')">⬅ Retour</div>
+</div>
+
+
+<!-- SOMMAIRE JAVASCRIPT -->
+<div id="js" class="section">
+<header>
+    <h1> Sommaire JavaScript</h1>
+</header>
+
+<a href="TP4\DOC\JAVA\Cours1_Introduction (1).pdf" target="_blank" class="btn">Cours 1 </a>
+<a href="TP4\DOC\JAVA\Cours2_Les variables_ALGO.pdf" target="_blank" class="btn">Cours 2 </a>
+<a href="TP4\DOC\JAVA\Cours3_Les bases_JAVA.pdf" target="_blank" class="btn">Cours 3 </a>
+<a href="TP4\DOC\JAVA\Cours4_Les_Structures_de_Controles_I.pdf" target="_blank" class="btn">Cours 4 </a>
+
+<div class="back" onclick="showSection('home')">⬅ Retour</div>
+</div>
+
+</body>
+</html>

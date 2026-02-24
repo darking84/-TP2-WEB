@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML — Leçon 1</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --accent:#8b5cf6;
+  --accent2:#22d3ee;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#1f2937;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  padding:1.5rem 3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(15,23,42,0.8);
+  backdrop-filter:blur(8px);
+}
+
+.logo{
+  font-weight:800;
+  font-size:1.4rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+nav a{
+  margin-left:2rem;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  font-size:0.9rem;
+}
+
+nav a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{
+  padding:6rem 3rem 4rem;
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:800;
+  margin-bottom:1rem;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+/* SECTION */
+.section{
+  max-width:900px;
+  margin:4rem auto;
+  padding:0 3rem;
+}
+
+.section h2{
+  font-size:1.8rem;
+  margin-bottom:1rem;
+}
+
+.card{
+  background:var(--card);
+  padding:2rem;
+  border:1px solid var(--border);
+  border-radius:16px;
+  margin-top:1.5rem;
+}
+
+/* CODE */
+pre{
+  background:#0b1220;
+  padding:1.5rem;
+  border-radius:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.9rem;
+  overflow:auto;
+  border:1px solid var(--border);
+}
+
+code{color:var(--accent2)}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+}
+
+.tag{
+  background:var(--card);
+  padding:1.2rem;
+  border-radius:12px;
+  border:1px solid var(--border);
+  transition:0.3s;
+}
+
+.tag:hover{
+  transform:translateY(-5px);
+  border-color:var(--accent);
+}
+
+/* QUIZ */
+.quiz{
+  background:var(--card);
+  padding:2rem;
+  border-radius:16px;
+  border:1px solid var(--border);
+}
+
+.quiz button{
+  margin-top:1rem;
+  padding:0.8rem 1.5rem;
+  background:var(--accent);
+  border:none;
+  color:white;
+  font-weight:600;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.quiz button:hover{opacity:0.8}
+
+.result{margin-top:1rem;font-weight:600}
+
+/* FOOTER NAV */
+.footer-nav{
+  text-align:center;
+  padding:3rem;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+
+@media(max-width:768px){
+  header{padding:1rem}
+  .section{padding:0 1.5rem}
+  .hero{padding:4rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HTML</div>
+  <nav>
+    <a href="#">Cours</a>
+    <a href="#">Exercices</a>
+    <a href="#">Docs</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Apprenez les bases du HTML</h1>
+  <p>Comprenez la structure du web et créez votre première page en quelques minutes.</p>
+</section>
+
+<section class="section">
+  <h2>1. Qu'est-ce que le HTML ?</h2>
+  <div class="card">
+    <p>HTML signifie <strong>HyperText Markup Language</strong>. Il permet de structurer le contenu d’une page web grâce à des balises.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>2. Structure d’une page</h2>
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ma page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+</section>
+
+<section class="section">
+  <h2>3. Balises essentielles</h2>
+  <div class="grid">
+    <div class="tag"><strong>&lt;h1&gt;</strong><br>Titre principal</div>
+    <div class="tag"><strong>&lt;p&gt;</strong><br>Paragraphe</div>
+    <div class="tag"><strong>&lt;a&gt;</strong><br>Lien</div>
+    <div class="tag"><strong>&lt;img&gt;</strong><br>Image</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>4. Mini Quiz</h2>
+  <div class="quiz">
+    <p>Quelle balise sert au titre principal visible dans la page ?</p>
+    <label><input type="radio" name="q" value="a"> &lt;title&gt;</label><br>
+    <label><input type="radio" name="q" value="b"> &lt;h1&gt;</label><br>
+    <label><input type="radio" name="q" value="c"> &lt;head&gt;</label><br>
+    <button onclick="check()">Vérifier</button>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<div class="footer-nav">
+
+</div>
+
+<script>
+function check(){
+  const val=document.querySelector('input[name="q"]:checked');
+  const result=document.getElementById('result');
+  if(!val){
+    result.textContent="Choisissez une réponse.";
+    result.style.color="orange";
+    return;
+  }
+  if(val.value==="b"){
+    result.textContent="Correct !";
+    result.style.color="lightgreen";
+  }else{
+    result.textContent="Incorrect. La bonne réponse est <h1>.";
+    result.style.color="salmon";
+  }
+}
+</script>
+
+</body>
+</html>
