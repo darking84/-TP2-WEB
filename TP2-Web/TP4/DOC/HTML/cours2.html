@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Academy — Leçon 2</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0e1117;
+  --panel:#161b22;
+  --card:#1f2630;
+  --accent:#4f46e5;
+  --accent2:#22d3ee;
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --border:#2a3240;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+
+header{
+  padding:1.5rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  background:rgba(14,17,23,0.8);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.logo{
+  font-weight:800;
+  font-size:1.2rem;
+  letter-spacing:0.5px;
+}
+
+.progress-container{
+  width:200px;
+  height:4px;
+  background:var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+.progress{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transition:width 0.3s ease;
+}
+
+
+.hero{
+  padding:5rem 2rem;
+  text-align:center;
+  max-width:800px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:clamp(2.5rem,5vw,3.5rem);
+  margin-bottom:1rem;
+}
+
+.hero span{
+  color:var(--accent2);
+}
+
+.hero p{
+  color:var(--muted);
+}
+
+
+.section{
+  max-width:800px;
+  margin:4rem auto;
+  padding:0 2rem;
+}
+
+.section h2{
+  font-size:1.6rem;
+  margin-bottom:1rem;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:2rem;
+  border-radius:16px;
+  margin-top:1rem;
+}
+
+
+pre{
+  background:#0b0f15;
+  padding:1.5rem;
+  border-radius:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.85rem;
+  overflow:auto;
+  border:1px solid var(--border);
+  margin-top:1rem;
+}
+
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+}
+
+.grid-item{
+  background:var(--panel);
+  padding:1.2rem;
+  border-radius:12px;
+  border:1px solid var(--border);
+  transition:0.3s;
+}
+
+.grid-item:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+}
+
+/* QUIZ */
+.quiz{
+  background:var(--panel);
+  padding:2rem;
+  border-radius:16px;
+  border:1px solid var(--border);
+}
+
+.quiz label{
+  display:block;
+  margin:0.5rem 0;
+  cursor:pointer;
+}
+
+.quiz button{
+  margin-top:1rem;
+  padding:0.8rem 1.5rem;
+  background:var(--accent);
+  border:none;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:1rem;
+  font-weight:600;
+}
+
+
+footer{
+  text-align:center;
+  padding:3rem;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  margin-top:4rem;
+}
+
+@media(max-width:768px){
+  .hero{padding:4rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HTML Academy</div>
+  <div class="progress-container">
+    <div class="progress" id="progress"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>La balise <span>&lt;a&gt;</span></h1>
+  <p>Créer des liens internes, externes, ancres et emails en HTML.</p>
+</section>
+
+<section class="section">
+  <h2>1. Créer un lien</h2>
+  <div class="card">
+    <p>La balise <strong>&lt;a&gt;</strong> permet de créer un lien hypertexte.</p>
+<pre>&lt;a href="page2.html"&gt;Aller à la page 2&lt;/a&gt;</pre>
+  </div>
+</section>
+
+<section class="section">
+  <h2>2. Types de liens</h2>
+  <div class="grid">
+    <div class="grid-item"><strong>Interne</strong><br>page2.html</div>
+    <div class="grid-item"><strong>Externe</strong><br>https://site.com</div>
+    <div class="grid-item"><strong>Email</strong><br>mailto:contact@mail.com</div>
+    <div class="grid-item"><strong>Ancre</strong><br>#section2</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>3. Ouvrir dans un nouvel onglet</h2>
+  <div class="card">
+<pre>&lt;a href="https://w3.org" target="_blank"&gt;W3C&lt;/a&gt;</pre>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Mini Quiz</h2>
+  <div class="quiz">
+    <p>Quel attribut définit la destination d'un lien ?</p>
+    <label><input type="radio" name="q1" value="a"> src</label>
+    <label><input type="radio" name="q1" value="b"> href</label>
+    <label><input type="radio" name="q1" value="c"> link</label>
+    <button onclick="checkQuiz()">Vérifier</button>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<footer>
+  Leçon 2 / 4 — Continue vers la suite 🚀
+</footer>
+
+<script>
+
+// Quiz
+function checkQuiz(){
+  const val=document.querySelector('input[name="q1"]:checked');
+  const result=document.getElementById('result');
+  if(!val){
+    result.textContent="Choisis une réponse.";
+    result.style.color="orange";
+    return;
+  }
+  if(val.value==="b"){
+    result.textContent="Correct ! 🎉";
+    result.style.color="lightgreen";
+    localStorage.setItem("lesson2","completed");
+  }else{
+    result.textContent="Incorrect.";
+    result.style.color="salmon";
+  }
+}
+</script>
+
+</body>
+</html>
