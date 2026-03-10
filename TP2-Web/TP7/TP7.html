@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP CSS – Zoning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --ink: #1a1208;
+      --accent: #e8341a;
+      --muted: #9a8f7e;
+      --line: #c8bfaf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Bande latérale gauche ── */
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 64px;
+      border-right: 2px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+
+    .sidebar-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: var(--muted);
+    }
+
+    .sidebar-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ── Contenu principal ── */
+    .main {
+      margin-left: 64px;
+      padding: 60px 80px 80px 80px;
+      max-width: 1100px;
+    }
+
+    /* ── En-tête ── */
+    .header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .header-left h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+    }
+
+    .header-left h1 span { color: var(--accent); }
+
+    .header-right {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+      padding-bottom: 8px;
+    }
+
+    /* ── Liste ── */
+    .list { list-style: none; }
+
+    .list-item {
+      border-bottom: 1px solid var(--line);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .list-item:nth-child(1) { animation-delay: 0.05s; }
+    .list-item:nth-child(2) { animation-delay: 0.10s; }
+    .list-item:nth-child(3) { animation-delay: 0.15s; }
+    .list-item:nth-child(4) { animation-delay: 0.20s; }
+    .list-item:nth-child(5) { animation-delay: 0.25s; }
+    .list-item:nth-child(6) { animation-delay: 0.30s; }
+    .list-item:nth-child(7) { animation-delay: 0.35s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .list-item a {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 26px 0;
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.25s ease;
+      position: relative;
+    }
+
+    .list-item a::before {
+      content: '';
+      position: absolute;
+      left: -80px; top: 0; bottom: 0;
+      width: 0;
+      background: var(--accent);
+      opacity: 0.06;
+      transition: width 0.3s ease;
+    }
+
+    .list-item:hover a { padding-left: 12px; }
+    .list-item:hover a::before { width: calc(100% + 160px); }
+
+    .item-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .item-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .item-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .item-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .item-arrow {
+      font-size: 22px;
+      color: var(--line);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .list-item:hover .item-arrow {
+      transform: translateX(6px);
+      color: var(--accent);
+    }
+
+    /* ── Pied de page ── */
+    .footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <span class="sidebar-label">BTS SIO — B1.WEB</span>
+    <div class="sidebar-dot"></div>
+  </div>
+
+  <div class="main">
+
+    <header class="header">
+      <div class="header-left">
+        <h1>TP CSS<br><span>Zoning</span></h1>
+      </div>
+      <div class="header-right">
+        Module B1.WEB<br>
+        S. Gibert<br>
+        14 / 03 / 2022
+      </div>
+    </header>
+
+    <ul class="list">
+      <li class="list-item">
+        <a href="zoning1.html">
+          <span class="item-num">01</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 1</span>
+            <span class="item-desc">Header + Sidebar gauche + Contenu</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning2.html">
+          <span class="item-num">02</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 2</span>
+            <span class="item-desc">Header + 3 Colonnes</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning3.html">
+          <span class="item-num">03</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 3</span>
+            <span class="item-desc">2 Colonnes + Footer</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning4.html">
+          <span class="item-num">04</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 4</span>
+            <span class="item-desc">Haut + Menu + Milieu + Bas</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning5.html">
+          <span class="item-num">05</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 5</span>
+            <span class="item-desc">Haut + Menu + Grille 2×2</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning6.html">
+          <span class="item-num">06</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 6</span>
+            <span class="item-desc">Grille 4×4 de zones PZ</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="zoning7.html">
+          <span class="item-num">07</span>
+          <div class="item-body">
+            <span class="item-title">Zoning 7</span>
+            <span class="item-desc">Sidebars + 5 Colonnes + Zone bas</span>
+          </div>
+          <span class="item-arrow">→</span>
+        </a>
+      </li>
+    </ul>
+
+    <footer class="footer">
+      <span>Lycée Algoud-Laffemas</span>
+      <span>7 exercices</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>
